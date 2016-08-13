@@ -1,0 +1,23 @@
+﻿@model KendoStart.Models.Employee
+
+@{
+    ViewBag.Title = "Index";
+    
+}
+
+<h2>Employee</h2>
+<div class="container">
+    <div class="row">
+
+        @(Html.Kendo().Grid<KendoStart.Models.Employee>()
+    .Name("EmpGrid")
+    .Selectable()
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .Read(read => read.Action("EmployeeList", "Employee"))
+        )
+        )
+
+    </div>
+</div>
+
