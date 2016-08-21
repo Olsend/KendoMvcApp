@@ -1,4 +1,4 @@
-﻿@model KendoStart.Models.Employee
+﻿@model KendoMvcApp.Models.Employee
 
 @{
     ViewBag.Title = "Index";
@@ -9,15 +9,36 @@
 <div class="container">
     <div class="row">
 
-        @(Html.Kendo().Grid<KendoStart.Models.Employee>()
-    .Name("EmpGrid")
-    .Selectable()
-    .DataSource(dataSource => dataSource
-        .Ajax()
-        .Read(read => read.Action("EmployeeList", "Employee"))
+       <br />
+        @(Html.Kendo().Window()
+        
+        .Name("window")
+        .Width(630)
+        .Height(315)
+        .Draggable()
+        .Resizable()
+        //.Modal(true)
+        
+        .Title("Employee List Grid")
+        //.Actions(actions => actions.Pin().Refresh().Maximize().Close())
+        .LoadContentFrom("Demo", "Employee")
         )
-        )
-
+        
+       
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        debugger;
+        var myWindow = $("#window");
+        myWindow.visible(false)
+        $("#open").click(function (e) {
+            debugger;
+            myWindow.data("kendoWindow").open();
+            myWindow.visible(true);
+        });
+
+       
+    });
+</script>
 

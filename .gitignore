@@ -243,3 +243,8 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/KendoMvcApp/Controllers/EmployeesAPIController.cs
+/KendoMvcApp/Controllers/EmployeesCRUDController.cs
+/KendoMvcApp/Views/Employee
+/KendoMvcApp/Views/Employee
+/KendoMvcApp/Views/Employee/Index.cshtml
