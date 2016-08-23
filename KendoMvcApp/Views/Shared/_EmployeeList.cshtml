@@ -1,11 +1,11 @@
-﻿@model KendoMvcApp.Models.EmployeeDetailList
+﻿@model KendoMvcApp.Models.Employee
 
 
-<h2>Employee</h2>
+
 <div class="container">
     <div class="row">
 
-        @(Html.Kendo().Grid<KendoMvcApp.Models.EmployeeDetailList>()
+        @(Html.Kendo().Grid<KendoMvcApp.Models.Employee>()
     .Name("EmpGrid")
     .Selectable()
     .Columns(columns =>
@@ -17,7 +17,7 @@
     })
     .DataSource(dataSource => dataSource
         .Ajax()
-        .Read(read => read.Action("EmployeeList", "Employee"))
+        .Read(read => read.Action("GetAllEmployee", "Employee"))
         )
         )
 </div>

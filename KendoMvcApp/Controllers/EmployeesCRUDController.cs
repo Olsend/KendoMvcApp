@@ -29,7 +29,7 @@ namespace KendoMvcApp.Controllers
 
                 var employee = db.Employees.ToList();
 
-                return Json(employee.ToDataSourceResult(request));
+                return Json(employee.ToDataSourceResult(request),JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
@@ -46,12 +46,12 @@ namespace KendoMvcApp.Controllers
                 {
                     db.Entry(emp).State = EntityState.Modified;
                     db.SaveChanges();
-                    return Json(new[] { emp }.ToDataSourceResult(request, ModelState));
+                    return Json(new[] { emp }.ToDataSourceResult(request, ModelState),JsonRequestBehavior.AllowGet);
 
                 }
                 else
                 {
-                    return Json(db.Employees.ToList());
+                    return Json(db.Employees.ToList(),JsonRequestBehavior.AllowGet);
                 }
             }
             catch (Exception ex)
@@ -70,12 +70,12 @@ namespace KendoMvcApp.Controllers
                     db.Employees.Add(emp);
                     db.SaveChanges();
                     var _emplist = db.Employees.ToList();
-                    return Json(new[] { emp }.ToDataSourceResult(request, ModelState));
+                    return Json(new[] { emp }.ToDataSourceResult(request, ModelState),JsonRequestBehavior.AllowGet);
                 }
 
                 else
                 {
-                    return Json(db.Employees.ToList());
+                    return Json(db.Employees.ToList(),JsonRequestBehavior.AllowGet);
                 }
             }
             catch (Exception ex)
@@ -96,7 +96,7 @@ namespace KendoMvcApp.Controllers
 
                 db.Employees.Remove(employee);
                 db.SaveChanges();
-                return Json(db.Employees.ToList());
+                return Json(db.Employees.ToList(),JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {

@@ -5,22 +5,24 @@
     
 }
 
-<h2>Employee</h2>
+
+
+<div class="row">
+    <button id="open" class="k-button">Open Employee Grid</button>
+</div>
+
 <div class="container">
     <div class="row">
 
        <br />
         @(Html.Kendo().Window()
-        
         .Name("window")
         .Width(630)
         .Height(315)
         .Draggable()
         .Resizable()
-        //.Modal(true)
-        
+        .Visible(false)
         .Title("Employee List Grid")
-        //.Actions(actions => actions.Pin().Refresh().Maximize().Close())
         .LoadContentFrom("Demo", "Employee")
         )
         
@@ -31,14 +33,10 @@
     $(document).ready(function () {
         debugger;
         var myWindow = $("#window");
-        myWindow.visible(false)
         $("#open").click(function (e) {
             debugger;
             myWindow.data("kendoWindow").open();
-            myWindow.visible(true);
-        });
-
-       
+        });       
     });
 </script>
 
