@@ -240,24 +240,24 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Employee.cs">
-      <DependentUpon>EmployeeDetail.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EmployeeDetail.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EmployeeDetail.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EmployeeDetail.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EmployeeDetail.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EmployeeDetail.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EmployeeDetail.edmx</DependentUpon>
+      <DependentUpon>EmployeeDetails.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EmployeeDetailList.cs" />
+    <Compile Include="Models\EmployeeDetails.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeDetails.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeeDetails.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeDetails.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeeDetails.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeDetails.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -267,15 +267,15 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\EmployeeDetail.Context.tt">
+    <Content Include="Models\EmployeeDetails.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EmployeeDetail.edmx</DependentUpon>
-      <LastGenOutput>EmployeeDetail.Context.cs</LastGenOutput>
+      <DependentUpon>EmployeeDetails.edmx</DependentUpon>
+      <LastGenOutput>EmployeeDetails.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\EmployeeDetail.tt">
+    <Content Include="Models\EmployeeDetails.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EmployeeDetail.edmx</DependentUpon>
-      <LastGenOutput>EmployeeDetail.cs</LastGenOutput>
+      <DependentUpon>EmployeeDetails.edmx</DependentUpon>
+      <LastGenOutput>EmployeeDetails.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
@@ -284,12 +284,12 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\EmployeeDetail.edmx">
+    <EntityDeploy Include="Models\EmployeeDetails.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EmployeeDetail.Designer.cs</LastGenOutput>
+      <LastGenOutput>EmployeeDetails.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\EmployeeDetail.edmx.diagram">
-      <DependentUpon>EmployeeDetail.edmx</DependentUpon>
+    <Content Include="Models\EmployeeDetails.edmx.diagram">
+      <DependentUpon>EmployeeDetails.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
