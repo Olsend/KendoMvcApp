@@ -54,7 +54,7 @@ namespace KendoMvcApp.Controllers
 
             var employee = db.Employees.ToList();
 
-            return Json(employee.ToDataSourceResult(request));
+            return Json(employee.ToDataSourceResult(request),JsonRequestBehavior.AllowGet);
             }
             catch(Exception ex)
             {

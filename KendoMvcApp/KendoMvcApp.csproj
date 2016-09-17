@@ -230,6 +230,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CascadingCountryController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\EmployeesAPIController.cs" />
     <Compile Include="Controllers\EmployeesCRUDController.cs" />
@@ -239,6 +240,21 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Country_State.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Country_State.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Country_State.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Country_State.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Country_State.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Country_State.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Employee.cs">
       <DependentUpon>EmployeeDetails.tt</DependentUpon>
     </Compile>
@@ -260,6 +276,15 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\tbl_city.cs">
+      <DependentUpon>Country_State.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_country.cs">
+      <DependentUpon>Country_State.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_state.cs">
+      <DependentUpon>Country_State.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -267,6 +292,16 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Models\Country_State.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Country_State.edmx</DependentUpon>
+      <LastGenOutput>Country_State.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Country_State.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Country_State.edmx</DependentUpon>
+      <LastGenOutput>Country_State.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\EmployeeDetails.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EmployeeDetails.edmx</DependentUpon>
@@ -290,6 +325,13 @@
     </EntityDeploy>
     <Content Include="Models\EmployeeDetails.edmx.diagram">
       <DependentUpon>EmployeeDetails.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Country_State.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Country_State.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Country_State.edmx.diagram">
+      <DependentUpon>Country_State.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -342,6 +384,7 @@
     <Content Include="Views\Employee\Index.cshtml" />
     <Content Include="Views\Shared\_EmployeeList.cshtml" />
     <Content Include="Views\EmployeesCRUD\Index.cshtml" />
+    <Content Include="Views\CascadingCountry\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
