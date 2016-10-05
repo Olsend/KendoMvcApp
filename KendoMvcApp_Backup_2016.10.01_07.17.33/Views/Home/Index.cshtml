@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var myWindow = $("#window");
+
+        $("#open").click(function (e) {
+            myWindow.data("kendoWindow").open();
+
+        });
+
+
+    });
+</script>
+
+
+<div class="row">
+    <button id="open" class="k-button">Open Employee Grid</button>
+</div>
+

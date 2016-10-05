@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+  
+}
+
+<h2>Kendo Cascading Dropdownlist</h2>
+
+<div class="demo-section k-content" style="width:50%">
+
+    <h4>Country:</h4>
+    @(Html.Kendo().DropDownList()
+              .Name("Country")
+              .HtmlAttributes(new { style = "width:100%" })
+              .OptionLabel("Select country...")
+              .DataTextField("Country_Name")
+              .DataValueField("Country_ID")
+              .DataSource(source =>
+              {
+                  source.Read(read =>
+                  {
+                      read.Action("GetCountryList", "CascadingCountry");
+                  });
+              })
+    )
+
+    <h4 style="margin-top: 2em;">State:</h4>
+    @(Html.Kendo().DropDownList()
+              .Name("State")
+              .HtmlAttributes(new { style = "width:100%" })
+              .OptionLabel("Select state...")
+              .DataTextField("State_Name")
+              .DataValueField("State_ID")
+              .DataSource(source =>
+              {
+                  source.Read(read =>
+                  {
+                      read.Action("GetStateList", "CascadingCountry")
+                          .Data("filterState");
+                  })
+                  .ServerFiltering(true);
+              })
+              .Enable(false)
+              .AutoBind(false)
+              .CascadeFrom("Country")
+    )
+    <script>
+            function filterState() {
+                return {
+                    Country: $("#Country").val()
+                };
+            }
+    </script>
+
+    <h4 style="margin-top: 2em;">City</h4>
+    @(Html.Kendo().DropDownList()
+              .Name("City")
+              .HtmlAttributes(new { style = "width:100%" })
+              .OptionLabel("Select city...")
+              .DataTextField("City_Name")
+              .DataValueField("City_ID")
+              .DataSource(source =>
+              {
+                  source.Read(read =>
+                  {
+                      read.Action("GetCityList", "CascadingCountry")
+                          .Data("filterCity");
+                  })
+                  .ServerFiltering(true);
+              })
+              .Enable(false)
+              .AutoBind(false)
+              .CascadeFrom("State")
+    )
+    <script>
+            function filterCity() {
+                return {
+                    State: $("#State").val()
+                };
+            }
+    </script>
+
+</div>
+
+<style>
+    .k-readonly {
+        color: gray;
+    }
+</style>
+
+
+
+
+
+
+
