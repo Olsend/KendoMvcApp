@@ -236,12 +236,14 @@
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\EmployeesAPIController.cs" />
     <Compile Include="Controllers\EmployeesCRUDController.cs" />
+    <Compile Include="Controllers\GridDataSourceController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CompanyList.cs" />
     <Compile Include="Models\Country_State.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -258,6 +260,12 @@
       <DependentUpon>Country_State.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Employee.cs">
+      <DependentUpon>EmployeeDetails.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeeA.cs">
+      <DependentUpon>EmployeeDetails.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeeB.cs">
       <DependentUpon>EmployeeDetails.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EmployeeDetailList.cs" />
@@ -387,6 +395,7 @@
     <Content Include="Views\Shared\_EmployeeList.cshtml" />
     <Content Include="Views\EmployeesCRUD\Index.cshtml" />
     <Content Include="Views\CascadingCountry\Index.cshtml" />
+    <Content Include="Views\GridDataSource\CompanyList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

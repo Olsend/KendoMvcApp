@@ -1,0 +1,96 @@
+﻿@model KendoMvcApp.Models.EmployeeA
+@{
+    ViewBag.Title = "CompanyList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <h4> List of Companies </h4>
+            @(Html.Kendo().DropDownList()
+          .Name("Company")
+          .DataTextField("Text")
+          .DataValueField("Value")
+          .Events(e=>e.Change("onCompanyChange"))
+          .BindTo(new List<KendoMvcApp.Models.CompanyList>() {
+              new KendoMvcApp.Models.CompanyList() {
+                  Text = "Company A",
+                  Value = "1"
+              },
+              new KendoMvcApp.Models.CompanyList() {
+                  Text = "Company B",
+                  Value = "2"
+              }
+              
+          })
+          .Value("1")
+          .HtmlAttributes(new { style = "width: 100%" })
+            )
+        </div>
+        <div class="col-sm-9">
+            <h4 id="EmpTitle"> Employees of Company A </h4>
+
+            @(Html.Kendo().Grid<KendoMvcApp.Models.EmployeeA>()
+    .Name("EmpGrid")
+    .Selectable()
+    .Columns(columns =>
+    {
+        
+        columns.Bound(c => c.FirstName);
+        columns.Bound(c => c.LastName);
+
+    })
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .Read(read => read.Action("GetAllEmployeeA", "GridDataSource"))
+        )
+            )
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function onCompanyChange()
+    {
+        var Company = $("#Company").val();
+        var grid = $("#EmpGrid").data("kendoGrid");
+        if(Company=='2')
+        {
+            $("#EmpTitle").text('Employees of Company B ') 
+        grid.dataSource.transport.options.read.url = "/GridDataSource/GetAllEmployeeB"
+        grid.dataSource.read()
+        }
+        else
+        {
+            $("#EmpTitle").text('Employees of Company A ')
+            grid.dataSource.transport.options.read.url = "/GridDataSource/GetAllEmployeeA"
+            grid.dataSource.read()
+        }
+        
+    }
+    var EmployeeBDataSource = new kendo.data.DataSource({
+        schema: {
+            model: {
+                id: "EmployeeId",
+                fields: {
+                    
+                    FirstName: { type: "string" },
+                    LastName: { type: "string" }
+                }
+            }
+        },
+        batch: true,
+        transport: {
+            read: {
+                url: "/GridDataSource/GetAllEmployeeB",
+                dataType: "json"
+            },
+
+           
+        }
+    })
+</script>
+

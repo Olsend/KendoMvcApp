@@ -26,5 +26,7 @@ namespace KendoMvcApp.Models
         }
     
         public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<EmployeeA> EmployeeAs { get; set; }
+        public virtual DbSet<EmployeeB> EmployeeBs { get; set; }
     }
 }
